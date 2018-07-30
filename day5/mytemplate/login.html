@@ -1,0 +1,39 @@
+{%extends base.html%}
+{% block title%}登录页面{%end%}
+{% block head%}
+<script src="static/js/jquery-3.2.1.js"></script>
+<script>
+    $(function () {
+        var inputname = $("#input_username");
+        var imgname = $("#peopleimage");
+        inputname.blur(function () {
+            var name = inputname.val();
+            $.ajax({
+                url:'/imageperson',
+                type:'post',
+                data:{"username":name},
+                datatype:'json',
+                success:function (data) {
+                    if(data.img){
+                        console.log("static/upload/"+data.img);
+                        imgname.attr("src","static/upload/"+data.img)
+                    }else{
+                        alert('没有头像');
+                    }
+
+                },
+                error:function (err) {
+                    alert('shibai');
+                }
+
+            });
+        });
+
+    })
+
+</script>
+{%end%}
+
+{% block body%}
+{% module loginmodule()%}
+{%end%}

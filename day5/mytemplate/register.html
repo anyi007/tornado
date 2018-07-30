@@ -1,0 +1,36 @@
+{%extends base.html%}
+{% block title%}注册页面{%end%}
+{% block head %}
+<script src="/static/js/jquery-3.2.1.js"></script>
+<script>
+    $(function () {
+        var inputusername = $('#input_username');
+        var spanusername = $('#span_username');
+        inputusername.blur(function () {
+            var name = inputusername.val();
+            $.ajax({
+                url:"/check",
+                data:{'username':name},
+                type:'post',
+                datatype:'json',
+                success:function (data) {
+                    console.log(data)
+                    $spanusername = $('#span_username')
+                    if(data.msg=='ok'){
+                        $spanusername.html('对了')
+                    }else{
+                        $spanusername.html('该用户名已被使用')
+                    }
+
+                },
+                error:function (err) {
+                    console.log('错误信息'+err)
+                }
+            });
+        });
+    })
+</script>
+{%end%}
+{% block body%}
+{% module registmodule()%}
+{%end%}

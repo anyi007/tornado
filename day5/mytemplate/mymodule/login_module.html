@@ -1,0 +1,30 @@
+
+<form action="/login" method="post">
+    <table>
+        <tr>
+            <td colspan="2">
+                <img src="static/images/default_avatar.png" id="peopleimage" width="128px" height="128px">
+            </td>
+        </tr>
+        <tr>
+            <td>账号：</td>
+            <td><input type="text" name="username" id="input_username"></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><span style="color: #c9302c;font-weight: bolder;">{{result}}</span></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="登录">
+                <input type="button" onclick="javascript:location.href='/regist';" value="注册"></td>
+        </tr>
+
+
+    </table>
+
+
+</form>

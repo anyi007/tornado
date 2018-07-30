@@ -1,0 +1,39 @@
+
+<form action="/regist" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>账号：</td>
+            <td><input id="input_username" type="text" name="username"></td>
+            <td><span style="color: #c9302c" id="span_username"></span></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td>头像</td>
+            <td><input type="file" name="img"></td>
+        </tr>
+        <tr>
+            <td>城市：</td>
+            <td>
+                <select name="city"  >
+                    <option value="beijing">北京</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><span style="color: #c9302c;font-weight: bolder;">{{result}}</span></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="注册">
+                <input type="reset" value="重置">
+            </td>
+        </tr>
+
+
+    </table>
+
+
+</form>
